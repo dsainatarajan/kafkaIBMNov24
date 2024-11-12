@@ -1,0 +1,24 @@
+# Create a new command prompt
+Activities -> Terminal
+docker exec -it  singlenodekafka_kafka_1  bash
+
+# Start a new producer
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic demotopic1
+>new msgs
+>New Hello IBM
+>New message again
+> again another msg
+
+
+
+# Create a new command prompt
+Activities -> Terminal
+docker exec -it  singlenodekafka_kafka_1  bash
+
+# Start a consumer
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demotopic1 --from-beginning
+# You will receive messages from yesterday msg also
+# you will receive messages from both producers
+
+# Produce more messages on each producer tab, consumer should list the messages from producers
+

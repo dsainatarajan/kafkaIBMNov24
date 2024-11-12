@@ -4,15 +4,18 @@ ToC Walkthrough
 Trainer Intro: D Sai Natarajan, 15 Yrs
 Participant Intro: Yrs, Domain, Linux, Java, Springboot, MessageQueue, Kafka, Docker, Sql
 Special Expectations
-Mainly expecting -How we can use kafka in cloud in asyncronous communication specifically between the pods r b/w the services??
-knowledge & filtering the data from topic using kafka steams
-how to handle out of memory exceptions in streams
+Special Expectation : kstreams , ktables, and confluent Kafka
+Should be able to do  Estimations for Kafka Based Solutions
+Special expectations - ktables, ksql, kstreams
+How can integrate this kafka in mainframe is there any way to integrate.
+5) How use kafka in AWS
+
 
 D Sai Natarajan
 Yrs: 15yrs, Domain: Retail & Manufacturing, Linux: 10 Yrs(ubuntu, Centos), Java: 14yrs, Springboot:10yrs, microservices, MessageQueue: Activemq, Zmq, Rabbimq, Kafka: 10yrs, Apache, Confluent, Cloudera, Docker: 8 Yrs, Sql: 14 Yrs
 
-aliza: 8197903787
-aliza@alchemylearnsoft.com
+
+Aliza: 8197903787 Email: aliza@alchemylearnsoft.com
 Sagar <sagar@abridgesolutions.net>, 
 
 
@@ -24,9 +27,11 @@ Kafka Architecture
 Kafka Topics, Partitions
 Cli Producer, Consumer
 
+https://www.rabbitmq.com/tutorials/amqp-concepts -> Rabbitmq, exchange & queue
 
 Kafka: Opensource Message queue built from ground up for solving the scaling problem of message queue
 Enterprise ready: Java, massively parallel distributed architecture, very high scalability, high fault tolerance
+Low latency, high throughput
 
 List of message: Activemq, Rabbitmq, Zmq, Ibm MQ, Kafka, Cloud, etc
 Advantages of Kafka:
@@ -46,7 +51,7 @@ Terminologies:
 Push Model		-> Rabbimq
 
 
-Break from 11.51 to 12.06 PM!
+Break from 11.35 to 11.50 PM!
 
 Message Ordering:
 	Key based routing
