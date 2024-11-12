@@ -23,7 +23,7 @@ kafka-console-producer.sh --bootstrap-server localhost:9092 --topic sampletopic2
 
 # start a new terminal in a new window & start a new consumer belonging to same consumer group group1
 # connect to the container
-docker exec -it singlenodekafka-kafka-1 bash
+docker exec -it singlenodekafka_kafka_1 bash
 kafka-console-consumer.sh --topic sampletopic2 --from-beginning --bootstrap-server localhost:9092 --property "print.key=true" --property "print.offset=true"  --property "print.partition=true" --group group1 
 # publish more messages, observe that one of the consumers in the group will be idle & will not receive any messages
 
@@ -40,4 +40,5 @@ kafka-console-consumer.sh --topic sampletopic2 --from-beginning --bootstrap-serv
 # publish new messages
 >order3;{"prd":"redmi"}
 >order5;{"prd":"iPhone"}
+
 
