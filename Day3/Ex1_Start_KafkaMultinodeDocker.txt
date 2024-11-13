@@ -1,0 +1,18 @@
+# Stop all running producers & consumers
+# launch a new terminal/command prompt
+Activities -> terminal
+cd singlenodekafka
+docker-compose stop
+cd ..
+cd multinodekafka
+dir
+docker-compose up -d
+docker-compose ps
+# one zookeeper & 3 kafka containers should be listed
+
+# wait for a minute
+docker-compose up -d
+# if the kafka brokers have failed to start, this above command will start them again
+docker-compose ps
+# all the 3 brokers should be in up state, not is exited state
+

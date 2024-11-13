@@ -94,7 +94,18 @@ message2	-> Where will it get produced?
 	=> Messages with the same key will be produced to the same TargetPartition#
 	=> TargetPartition# is purely dependent on the key
 
-Break from 11.16 to 11.31 AM!
+Message: Is made of 2 components
+1. Key		-> can be any datatype, key is optional => Nullable
+2. Value	-> can be any datatype
+Messages are called as records -> Records have key & value
+Simillar to map or Hashmap
+Records => <key, Value>
+Message routing -> Messages with the same key will be produced to the same partition
+
+Messages with null key will be produced randomly to any partition
+
+
+Break from 11.25 to 11.40 AM!
 
 Consumer Groups
 
@@ -115,6 +126,17 @@ NumPartitions == Max number of Active consumers in the group
 
 If there are more consumers in the group than the number of partitions in the topic, then additional consumer will remain idle
 
+Scenario1:
+	4 Partitions, 2 Consumers in the consumer group, consumers are falling behind and lag keeps increasing
+	Soln: Add 2 more consumers
+
+Scenario2:
+	4 Partitions, 4 Consumers in the consumer group, consumers are falling behind and lag keeps increasing
+	Soln: Add 4 more partitions, then add 4 more consumers
+
+
+
+
 kafka tries distribute the partitions such that, each broker has equal number of partitions, each broker get equal number of leader partitions
 
 Partitions -> Partitions are for scalability
@@ -125,17 +147,6 @@ Replication -> Replication is for Fault Tolerance only
 Replication => Leader, follower
 
 	Producer & consumer can only write or read from the leader copy of the partition, replica cannot be connected to the clients(producer & consumer)
-
-Message: Is made of 2 components
-1. Key		-> can be any datatype, key is optional => Nullable
-2. Value	-> can be any datatype
-Messages are called as records -> Records have key & value
-Simillar to map or Hashmap
-Records => <key, Value>
-Message routing -> Messages with the same key will be produced to the same partition
-
-Messages with null key will be produced randomly to any partition
-
 
 
 I have no name@ret453654: 	=> pls ignore the "I Have no name"
