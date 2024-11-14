@@ -19,7 +19,7 @@ kafka-topics.sh --create --bootstrap-server kafka1:9092 --partitions 3 --replica
 kafka-console-consumer.sh --bootstrap-server kafka1:9092 --topic first_topic --property "print.key=true" --property "print.offset=true"  --property "print.partition=true" --from-beginning --group newgrp
 
 # Start a new terminal and start another consumer
-
+docker exec -it multinodekafka_kafka1_1 bash
 # start the consumer with metadata print option
 kafka-console-consumer.sh --bootstrap-server kafka1:9092 --topic first_topic --property "print.key=true" --property "print.offset=true"  --property "print.partition=true" --from-beginning --group newgrp
 
