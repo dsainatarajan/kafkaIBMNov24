@@ -2,13 +2,13 @@ Day3:
 Offset
 Multinode Kafka
 Fault tolerance
-Kafka TOpic Administration
-Java Producer
-Java Consumer
 Kafka Singlenode Installation
 
 
 
+Kafka TOpic Administration
+Java Producer
+Java Consumer
 
 
 Kafka originated -> Linked(2005 to 2009)
@@ -18,11 +18,9 @@ Right now -> Kafka 3.7.x
 Kafka Presentation
 https://github.com/dsainatarajan/multinodekafkadocker
 
-Break from 11.15 to 11.30 AM!
-
-
 Multinode Kafka cluster
 
+Break from 11.50 AM to 12.05 PM!
 
 zookeeper client port			-> 2181
 Kafka broker client port		-> 9092
@@ -89,6 +87,11 @@ Topic: testtopic3	TopicId: uPCnbZgXTfybkXmL-avYBA	PartitionCount: 3	ReplicationF
 Setting up kafka on linux
 Installing Kafka on ubuntu container & starting the services
 
+Setting up kafka on linux:
+	1. Install the Java(JVM)
+	2. Download and extract kafka 
+	3. Add kafka bin folder to the path variable
+	4. Start zookeeper & kafka
 
 
 
