@@ -2,7 +2,7 @@
 exit
 docker ps
 # connect to the zookeeper container
-docker exec -it multinodekafka-zookeeper-1 bash
+docker exec -it multinodekafka_zookeeper_1 bash
 zkCli.sh 
 ls /
 ls /brokers
