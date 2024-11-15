@@ -4,7 +4,7 @@ Activities -> Terminal
 cd kafkacode
 rm -r 5advancede_consumer_manualcommit
 unzip 5advancede_consumer_manualcommit.zip
-cd 5advancede_consumer_manualcommit/5advancede_consumer_manualcommit/kafka-consumer/
+cd 5advancede_consumer_manualcommit/kafka-consumer/
 mvn package
 cd target
 ls -lh
