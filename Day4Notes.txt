@@ -1,10 +1,57 @@
 Day4:
+Zookeeper
 Java Producer
 Java Consumer
 Java Advanced Producer settings
 Java Advanced Consumer Settings
 Kafka TOpic Administration
 
+ZooKeeper: Distributed Storage & Coordination System
+
+Old command:
+kafka-topics.sh --list --zookeeper localhost:2181
+
+New command:
+kafka-topics.sh --list --bootstrap-server kafka1:9092
+
+Clients only communicate to kafka brokers now and they dont connect to zookeeper anymore
+ZooKeeper:
+Is a distributed storage and coordinator
+Services of ZooKeeper
+	i) It provides persistence(storage) to important kafka metadata
+	ii) It provides notifications(coordination) about broker details
+
+ZooKeeper is distributed(multinode) system made of Leader & Follower nodes
+Leader -> write, read
+follower -> read, client cannot directly perform write operation on follower
+	If a client commands a follower with write operation, the follower will forward the write request to the leader
+All write operations in zookeeper are quorum based
+Notification system of ZooKeeper works as a Watch mechanism
+
+Kraft => Replacement for ZooKeeper service
+Kafka 1,2 => ZooKeeper Mandatory
+Kafka 3   => ZooKeeper or Kraft
+
+ZooKeeper Cli: Metadata stored by kafka list
+
+Multinode kafka => node1
+
+All writes & reads to zookeeper are quorum based, quorum => majority
+Write data to zookeeper -> Majority of zookeeper nodes should have comitted & ack the commit. only the client will get success response
+
+If the number of zookeeper nodes in the zookeeper cluster increases, then the time required to reach quorum will also increase
+
+ZooKeeper storage is like a linux filesystem
+root folder /
+folders => znodes
+data 
+znodes can have more znodes(folders) or they can have data
+
+ls -> znode will list subfolder(znodes)
+get -> znode will return data stored in the znode
+zkCli.sh -> shell script to connect to the zookeeper
+
+Break from 11.45 to 12 PM!
 
 Simple Producer:
 Java, Maven(pom.xml)
@@ -22,7 +69,6 @@ properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 # Console consumer --from-beginning => code -> earliest
 # Default is latest -> consumer can only read messages produced after the consumer is started
 
-Break from 12.00 PM to 12.15 PM!
 
 https://kafka.apache.org/23/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html
 
@@ -36,6 +82,7 @@ ProducerRecord(String topic, Integer partition, K key, V value)
 Creates a record to be sent to a specified topic and partition
 
 
+# All code for producer, consumer are present in thie repository
 https://github.com/dsainatarajan/kafkacode
 
 
