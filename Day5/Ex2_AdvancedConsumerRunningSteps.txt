@@ -1,0 +1,29 @@
+# stop the existing console consumers by Ctrl+C
+# Launch a new command prompt
+Activities -> Terminal
+cd kafkacode
+rm -r 5advancede_consumer_manualcommit
+unzip 5advancede_consumer_manualcommit.zip
+cd 5advancede_consumer_manualcommit/5advancede_consumer_manualcommit/kafka-consumer/
+mvn package
+cd target
+ls -lh
+docker cp *-jar-with-dependencies.jar  multinodekafka_kafka1_1:/advancedconsumer.jar
+docker exec it multinodekafka_kafka1_1
+# run the advancedconsumer jar
+java -jar advancedconsumer.jar
+
+# on another terminal get into the container again
+
+docker exec it multinodekafka_kafka1_1
+# run the advancedconsumer jar
+java -jar advancedconsumer.jar
+
+# on another terminal & start the jar
+docker exec -it multinodekafka_kafka1_1 bash
+java -jar advancedproducer.jar first_topic
+
+# run the producer jar again to create new messages for the consumer to consume
+java -jar advancedproducer.jar  first_topic
+java -jar advancedproducer.jar  first_topic
+java -jar advancedproducer.jar  first_topic
