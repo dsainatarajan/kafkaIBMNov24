@@ -1,5 +1,8 @@
 # Launch a new command prompt: Activities -> Terminal
 cd kafkacode
+rm -r 4advance_producer
+ls
+
 unzip 4advance_producer.zip
 cd 4advance_producer/kafka-producer/
 mvn package
