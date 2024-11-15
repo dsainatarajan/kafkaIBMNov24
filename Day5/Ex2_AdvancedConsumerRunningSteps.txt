@@ -9,13 +9,13 @@ mvn package
 cd target
 ls -lh
 docker cp *-jar-with-dependencies.jar  multinodekafka_kafka1_1:/advancedconsumer.jar
-docker exec it multinodekafka_kafka1_1
+docker exec -it multinodekafka_kafka1_1 bash
 # run the advancedconsumer jar
 java -jar advancedconsumer.jar
 
 # on another terminal get into the container again
 
-docker exec it multinodekafka_kafka1_1
+docker exec -it multinodekafka_kafka1_1 bash
 # run the advancedconsumer jar
 java -jar advancedconsumer.jar
 
