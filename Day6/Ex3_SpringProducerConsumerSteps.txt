@@ -6,7 +6,13 @@ unzip 7springkafkademo_upgraded.zip
 cd 7springkafkademo_upgraded/springkafkaproducerdemo
 
 java -version
-# Java version should be listed as 17 or higher
+# Java version should be listed as 17 
+sudo apt update && sudo apt install openjdk-17-jdk -y
+export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
+java -version
+# Java version should be 17
 
 mvn package
 ls target
@@ -24,7 +30,7 @@ ls target
 # copy the jars from mvn container to kafka1 container
 docker cp target/springkafkademoconsumer-0.0.1-SNAPSHOT.jar  multinodekafka_kafka1_1:/springconsumer.jar
 
-docker exec -it multinodekafka-kafka1-1 bash
+docker exec -it multinodekafka_kafka1_1 bash
 kafka-topics.sh --create --bootstrap-server kafka1:9092 --replication-factor 2 --partitions 3 --topic test
 
 # --add-opens java.base/java.lang=ALL-UNNAMED arg added to fix reflection issues in Java
