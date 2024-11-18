@@ -1,0 +1,48 @@
+# Stop all producers and consumers with Ctrl+C
+# Launch a new command prompt
+Activities -> Terminal -> Enter
+cd $HOME/kafkacode
+unzip 7springkafkademo_upgraded.zip
+cd 7springkafkademo_upgraded/springkafkaproducerdemo
+
+java -version
+# Java version should be listed as 17 or higher
+
+mvn package
+ls target
+
+docker cp target/springkafkademo-0.0.1-SNAPSHOT.jar   multinodekafka_kafka1_1:/springproducer.jar
+
+# build the spring consumer jar
+cd $HOME/kafkacode
+cd 7springkafkademo_upgraded/springdemoconsumer
+
+mvn package
+ls target
+# Launch a new terminal to copy the jars built to kafka1
+
+# copy the jars from mvn container to kafka1 container
+docker cp target/springkafkademoconsumer-0.0.1-SNAPSHOT.jar  multinodekafka_kafka1_1:/springconsumer.jar
+
+docker exec -it multinodekafka-kafka1-1 bash
+kafka-topics.sh --create --bootstrap-server kafka1:9092 --replication-factor 2 --partitions 3 --topic test
+
+# --add-opens java.base/java.lang=ALL-UNNAMED arg added to fix reflection issues in Java
+# start the Springboot consumer
+java --add-opens java.base/java.lang=ALL-UNNAMED -jar -D springconsumer.jar
+
+# launch a new terminal
+# Start the producer jar
+docker exec -it multinodekafka_kafka1_1 bash
+ls /
+java -jar --add-opens java.base/java.lang=ALL-UNNAMED -jar -D springproducer.jar
+
+
+# launch a new terminal
+# producer more records by calling the API & verify if the new messages are received by the spring consumer
+docker exec -it multinodekafka-kafka1-1 bash
+curl localhost:8080/kafka/producer?message=springdemo
+curl localhost:8080/kafka/producer?message=HelloKafka
+curl localhost:8080/kafka/producer?message=HelloIBM
+
+# observer all the messages will be received on the spring consumer
