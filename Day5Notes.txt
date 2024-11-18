@@ -11,6 +11,12 @@ Settings:
 	4. Reduce latency
 https://docs.confluent.io/platform/current/installation/configuration/producer-configs.html
 
+producer.send(record);		 -> Async
+producer.send(record).get(); -> Sync, 
+get() is a blocking call	-> It blocks until the record ack is received from the broker
+
+producer.send(record, Callback() {onCompletion()}); -> Async
+ 
 Important properites:
 enable.idempotence
 acks
