@@ -1,6 +1,6 @@
 # exit to the host machine
 exit
-cd Documents/multinodekafka
+cd $HOME/multinodekafka
 docker-compose stop
 
 cd ./../confluentkafka
