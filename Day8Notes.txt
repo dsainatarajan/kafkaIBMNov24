@@ -81,7 +81,7 @@ transactions -> Stream	=> Stores every event in the topic
 
 Anomaly		 -> Table	=> Stores only the latest information for a key in the topic
 
-Break from 11.30 AM to 11.45 AM!
+
 
 http://localhost:9092 -> never done on http, kafka does not work on http
 
@@ -112,6 +112,8 @@ Consumer:
 
 https://github.com/dsainatarajan/kafkaIBMOct24/blob/main/Day8/Ex3_KafkaRestProxyConfluent.txt
 
+Break from 11.35 AM to 11.50 AM!
+
 Confluent Schema Registry
 
 create table employee(id int(10), name varchar(30), address varchar(30));
@@ -134,5 +136,22 @@ If this kind of schema validation enforcement have to be given for a kafka topic
 }
 
 
+
+{"schema": 
+	{type:record,
+	name:Payment,
+	namespace:io.confluent.examples.clients.basicavro,
+	fields:[
+		{name:id,type:string},
+		{name:amount,type:double},
+		{name:region,type:string,default:""}
+		]
+	}
+}
+Valida Records:
+{"id": "34534534sfdsf", "amount": 500.0 }
+{"id": "34534534sfdsf", "amount": 500.0, "region":"pune" }
+Invalid Record:
+{"id": "34534534sfdsf", "region":"Chennai"}	-> Error, amount field is missing
 
 
