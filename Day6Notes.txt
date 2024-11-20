@@ -1,57 +1,9 @@
 Day6:
-Zookeeper
 Consumer group monitoring of Kafka clients
 Springboot kafka
-Kafka TOpic Advanced Administration
 Kafka Streams
+Kafka TOpic Advanced Administration
 
-
-ZooKeeper: Distributed Storage & Coordination System
-
-Old command:
-kafka-topics.sh --list --zookeeper localhost:2181
-
-New command:
-kafka-topics.sh --list --bootstrap-server kafka1:9092
-
-Clients only communicate to kafka brokers now and they dont connect to zookeeper anymore
-ZooKeeper:
-Is a distributed storage and coordinator
-Services of ZooKeeper
-	i) It provides persistence(storage) to important kafka metadata
-	ii) It provides notifications(coordination) about broker details
-
-ZooKeeper is distributed(multinode) system made of Leader & Follower nodes
-Leader -> write, read
-follower -> read, client cannot directly perform write operation on follower
-	If a client commands a follower with write operation, the follower will forward the write request to the leader
-
-Notification system of ZooKeeper works as a Watch mechanism
-
-Kraft => Replacement for ZooKeeper service
-Kafka 1,2 => ZooKeeper Mandatory
-Kafka 3   => ZooKeeper or Kraft
-
-ZooKeeper Cli: Metadata stored by kafka list
-
-Multinode kafka => node1
-
-All writes & reads to zookeeper are quorum based, quorum => majority
-Write data to zookeeper -> Majority of zookeeper nodes should have comitted & ack the commit. only the client will get success response
-
-If the number of zookeeper nodes in the zookeeper cluster increases, then the time required to reach quorum will also increase
-
-ZooKeeper storage is like a linux filesystem
-root folder /
-folders => znodes
-data 
-znodes can have more znodes(folders) or they can have data
-
-ls -> znode will list subfolder(znodes)
-get -> znode will return data stored in the znode
-zkCli.sh -> shell script to connect to the zookeeper
-
-Break from 11.25 AM to 11.40 AM!
 
 
 Consumer group monitoring of Kafka clients
@@ -105,5 +57,15 @@ public void receive(ConsumerRecord<?, ?> consumerRecord) {
 
 Spring Kafka
 https://medium.com/@prekshaan95/java-spring-boot-kafka-connection-setup-1f494df4eff4
+
+
+
+Break from 11.40 AM to 11.55 AM!
+
+Advanced TOpic Management
+
+
+
+
 
 
