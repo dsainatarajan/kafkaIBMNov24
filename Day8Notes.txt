@@ -148,7 +148,7 @@ If this kind of schema validation enforcement have to be given for a kafka topic
 		]
 	}
 }
-Valida Records:
+Valid Records:
 {"id": "34534534sfdsf", "amount": 500.0 }
 {"id": "34534534sfdsf", "amount": 500.0, "region":"pune" }
 Invalid Record:
